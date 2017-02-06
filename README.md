@@ -1,2 +1,2 @@
 # SchedBook
-Creating a website that aim to help college students organizing their class schedule
+Creating a website that aims to help college students better organize their class schedule.
