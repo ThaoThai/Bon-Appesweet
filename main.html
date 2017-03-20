@@ -1,24 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" src="search.js"></script>
+    <link type="text/css" rel="stylesheet" href="search.css">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script type="text/javascript" src="search.js"></script>
 </head>
-<body>
-    <label>Enter what you want to search.</label>
-    <input id="searchtext" name="searchtext" type="text" value="" placeholder="Enter your search here"/>
-    <button id="submitbutton" type="submit" onclick="search(document.getElementById('searchtext').value);">Enter</button>
-    <table id="myTable">
-        <thead>
-        <tr>
-            <th>Image</th>
-            <th>Name</th>
-            <th>Ingredients</th>
-        </tr>
-        </thead>
-        <tbody id="body">
-        </tbody>
-    </table>
+<body id="body">
+<label>Search</label>
+<input id="search" name="search" type="text" placeholder="Input Ingredients separated by comma" value="">
+<label>Number of Recipes</label>
+<input id="number" name="number" type="number" placeholder="Input number of recipes" value="">
+<button onclick="search(true,true,1)">Search</button>
 </body>
 </html>
