@@ -12,45 +12,61 @@ function search(fillIngredients,limitLicense,ranking){
 		if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
 			var data = JSON.parse(request.responseText);
 			var dataobject = {};
-			for(var i = 0; i< data.length; i++){
-                dataobject = {'id': data[i].id, 'image': data[i].image, 'likes': data[i].likes, 'missedIngredientCount': data[i].missedIngredientCount,'title': data[i].title,'usedIngredientCount': data[i].usedIngredientCount};
-                databox.push(dataobject);
-			}
-			var body = document.getElementById('body');
-            var table = document.createElement('table');
-            var thead = document.createElement('thead');
-            var trhead = document.createElement('tr');
-            var thnames = ['id','imgage','Missing Ingredient Count', 'Dish Name','Used Ingredient Count'];
-            for(var k = 0; k <thnames.length;k++){
-            	var th = document.createElement('th');
-            	th.innerHTML = thnames[k];
-            	trhead.appendChild(th);
-			}
-			thead.appendChild(trhead);
-			table.appendChild(thead);
-            var tbody = document.createElement('tbody');
-			for(var j = 0; j< databox.length;j++){
-				var tr = document.createElement('tr');
-				var tdid = document.createElement('td');
-				var tdimg =document.createElement('td');
-				var tdmic = document.createElement('td');
-				var tdt = document.createElement('td');
-				var tduic = document.createElement('td');
-				tdid.innerHTML = "<a href="+"recipeinfo.html?"+databox[j].id+">"+databox[j].id+"";
-				tdimg.innerHTML = ("<img src="+databox[j].image+">");
-				tdmic.innerHTML = (databox[j].missedIngredientCount);
-				tdt.innerHTML = (databox[j].title);
-				tduic.innerHTML = (databox[j].usedIngredientCount);
-				tr.appendChild(tdid);
-				tr.appendChild(tdid);
-				tr.appendChild(tdimg);
-				tr.appendChild(tdmic);
-				tr.appendChild(tdt);
-				tr.appendChild(tduic);
-				tbody.append(tr);
-			}
-			table.appendChild(tbody);
-			body.appendChild(table);
+			if(data.length > 0){
+                for(var i = 0; i< data.length; i++){
+                    dataobject = {'id': data[i].id, 'image': data[i].image, 'likes': data[i].likes, 'missedIngredientCount': data[i].missedIngredientCount,'title': data[i].title,'usedIngredientCount': data[i].usedIngredientCount,'missedIngredients': data[i].missedIngredients};
+                    databox.push(dataobject);
+                }
+                console.log(databox);
+                var body = document.getElementById('body');
+                var table = document.createElement('table');
+                var thead = document.createElement('thead');
+                var trhead = document.createElement('tr');
+                var thnames = ['id','imgage', 'Dish Name',"Ingredients"];
+                for(var k = 0; k <thnames.length;k++){
+                    var th = document.createElement('th');
+                    th.innerHTML = thnames[k];
+                    trhead.appendChild(th);
+                }
+                thead.appendChild(trhead);
+                table.appendChild(thead);
+                var tbody = document.createElement('tbody');
+                for(var j = 0; j< databox.length;j++){
+                    var tr = document.createElement('tr');
+                    var tdid = document.createElement('td');
+                    var tdimg =document.createElement('td');
+                    //var tdmic = document.createElement('td');
+                    var tdt = document.createElement('td');
+                    //var tduic = document.createElement('td');
+                    var tdmi = document.createElement('td');
+                    tdid.innerHTML = "<a href="+"recipeinfo.html?"+databox[j].id+">"+databox[j].id+"";
+                    tdimg.innerHTML = ("<img src="+databox[j].image+">");
+                    //tdmic.innerHTML = (databox[j].missedIngredientCount);
+                    tdt.innerHTML = (databox[j].title);
+                    //tduic.innerHTML = (databox[j].usedIngredientCount);
+                    for(var k = 0; k<databox[j].missedIngredients.length;k++){
+                        var tring = document.createElement('tr');
+                        tring.innerHTML = (databox[j].missedIngredients[k].name);
+                        tdmi.appendChild(tring);
+                    }
+
+                    tr.appendChild(tdid);
+                    tr.appendChild(tdid);
+                    tr.appendChild(tdimg);
+                    //tr.appendChild(tdmic);
+                    tr.appendChild(tdt);
+                    //tr.appendChild(tduic);
+                    tr.appendChild(tdmi);
+                    tbody.append(tr);
+                }
+                table.appendChild(tbody);
+                body.appendChild(table);
+            }else{
+			    var body = document.getElementById('body');
+			    var p = document.createElement('p');
+			    p.innerHTML = "NO RECIPE AVAILABLE FOR INGREDIENTS: " + document.getElementById("search").value;
+			    body.appendChild(p);
+            }
 		}
 	};
 	request.open("GET","https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?fillIngredients="+fillIngredients+"&ingredients="+Ingredients+"&limitLicense="+limitLicense+"&number="+number+"&ranking="+ranking+"");
