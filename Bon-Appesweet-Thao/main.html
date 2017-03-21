@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="dist/fastselect.min.css">
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="dist/fastselect.js"></script>
+    <link type="text/css" rel="stylesheet" href="css/search.css">
+<meta charset="ISO-8859-1">
+<title>Bon Appèsweet</title>
+<script type="text/javascript" src="javascript/search.js"></script>
+</head>
+    
+    
+<body id="body">
+ <div id= "wrapper">
+    <div class="title">
+       <h1> Bon Appèsweet </h1> 
+    </div>
+    <div class="input">
+        <h2> What's in your fridge?</h2>
+        <select class="multipleSelect" multiplename="ingredients">
+            <option value="Afghanistan">Afghanistan</option>
+            <option value="Albania">Albania</option>
+            <option value="Algeria">Algeria</option>
+        </select>
+
+        <input id="search" name="search" type="text" placeholder="Add Your Ingredients" value="">
+        <label>No. of Recipes</label>
+        <input id="number" name="number" type="number" placeholder="Recipes Number" value=""> <br><br>
+        <button onclick="search(true,false,2)"><img src=https://s3.amazonaws.com/swings/icons/icon_fridge.png> FIND MY RECIPES</button>
+    </div><br>
+     <div id="recipes">
+     </div>
+    
+</div>
+    
+</body>
+</html>

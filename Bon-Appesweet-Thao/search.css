@@ -1,0 +1,100 @@
+img {
+    width:100px;
+}
+table, tr, td{
+    border: 1px solid black;
+}
+html, body{
+    width:100%;
+    margin:0;
+    height: 100%;
+    font-family: Helvetica;
+    align-content: center;
+    background-color:darkgray;
+}
+#wrapper{
+    width:100%;
+    height: auto;
+    background-color: darkgray;
+    margin-left:auto;
+    margin-right:auto;
+}
+h1{
+    color: white;
+    font-size: 50px;
+    font-family: Helvetica;
+}
+h2 {
+    color: crimson;
+    font-size:30px;
+}
+
+.title {
+    width:100%;
+    height: 100px;
+    line-height: 0px;
+    position: fixed;
+    text-align: center;
+    margin: 0px;
+    background-image: url(ingredients-01.png);
+    background-size:100%;
+    padding:0px;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;  
+}
+
+.navbar {
+    padding-top: 15px;
+}
+.navbar a{
+   font-size:20px;  
+    color: white;
+    padding: 5px 5px 5px 5px;  
+}
+
+
+.title:hover{
+    filter: grayscale(40%) blur(1px);
+    transition: .4s ease-in-out;
+}
+.input{
+    text-align: center;
+    padding-top: 120px;
+    margin: auto;
+    color: white;
+}
+.tile, .navbar,{
+    display: inline-block;
+}
+
+#recipes{
+    text-align:center;
+    
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+   width:30px;
+   height:30px;
+    vertical-align: middle;
+}
+
+button {
+    border: none;
+    width: 50%;
+    height: 40px;
+    background-color: crimson;
+    color:white;
+    font-size: 20px;
+    
+}
+
+button:hover{
+    background-color: dodgerblue;
+}
