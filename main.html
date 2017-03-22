@@ -8,9 +8,50 @@
 </head>
 <body id="body">
 <label>Search</label>
-<input id="search" name="search" type="text" placeholder="Input Ingredients separated by comma" value="">
+<input id="Ingredients" name="Ingredients" type="text" placeholder="Input Ingredients separated by comma" value="" required><br>
 <label>Number of Recipes</label>
-<input id="number" name="number" type="number" placeholder="Input number of recipes" value="">
-<button onclick="search(true,false,2)">Search</button>
+<input id="number" name="number" type="number" min="10" max="100" placeholder="Input number of recipes" value="100" required><br>
+<label>Cuisine</label>
+<input type="text" id="cuisine" placeholder="Input Cuisine Types"><br>
+<label>Exclude Ingredients:</label>
+<input id="excludeIngredients" name="excludeIngredients" type="text" placeholder="Input Ingredients to exclude" value=""><br>
+<label>intolerance</label>
+<input id="intolerance" name="intolerance" type="text" placeholder="Input intolerable ingredients" value=""><br>
+<label>Max Calories</label>
+<input id="maxCalories" name="maxCalories" type="number" min="0" placeholder="Input number of recipes" value="10000"><br>
+<label>Max Carbs</label>
+<input id="maxCarbs" name="maxCarbs" type="number" min="0" placeholder="Input Ingredients separated by comma" value="10000"><br>
+<label>Max Fat</label>
+<input id="maxFat" name="maxFat" type="number" min="0" placeholder="Input number of recipes" value="10000"><br>
+<label>Max Protein</label>
+<input id="maxProtein" name="maxProtein" type="number" min="0" placeholder="Input Ingredients separated by comma" value="10000"><br>
+<label>Min Calories</label>
+<input id="minCalories" name="minCalories" type="number" min="0" placeholder="Input number of recipes" value="1"><br>
+<label>Min Carbs</label>
+<input id="minCarbs" name="minCarbs" type="number" min="0" placeholder="Input number of recipes" value="1"><br>
+<label>Min Fats</label>
+<input id="minFat" name="minFats" type="number" min="0" placeholder="Input number of recipes" value="1"><br>
+<label>Min Protein</label>
+<input id="minProtein" name="minProtein" type="number" min="0" placeholder="Input number of recipes" value="1"><br>
+<label>Specific Recipe</label>
+<input id="query" name="query" type="text" placeholder="Specific Recipe" value=""><br>
+<label>Type</label>
+<select id="type">
+    <option selected="selected">Main Course</option>
+    <option>Side Dish</option>
+    <option>Dessert</option>
+    <option>Appetizer</option>
+    <option>Salad</option>
+    <option>Bread</option>
+    <option>BreakFast</option>
+    <option>Soup</option>
+    <option>Beverage</option>
+    <option>Sauce</option>
+    <option>Drink</option>
+
+</select><br>
+<label>Ready In</label>
+<input id="readyInMinutes" name="readyInMinutes" type="number" min="10" placeholder="Minute it takes" value="60"><br>
+<button onclick="complexSearch()">Search Recipe containing Ingredient</button>
 </body>
 </html>
