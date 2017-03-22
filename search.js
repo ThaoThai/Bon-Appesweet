@@ -164,7 +164,9 @@ function complexSearch(){
             var body = document.getElementById('body');
             if(data.totalResults > 0) {
                 data.results.forEach(function (recipes) {
-                    if (recipes.readyInMinutes <= readyInMinutes && recipes.usedIngredients.length === IngredientCount) {
+                    console.log(recipes.title);
+                    console.log(recipes.missedIngredients.length);
+                    if (recipes.readyInMinutes <= readyInMinutes && recipes.usedIngredients.length === IngredientCount && (recipes.missedIngredients.length===3 ||recipes.missedIngredients.length===2 ||recipes.missedIngredients.length===1)) {
                         var div = document.createElement('div');
                         div.innerHTML = "<p>" + recipes.title + "<p><br>" + "<a href='recipeinfo.html?" + recipes.id + "'><img src=" + "'" + recipes.image + "'" + "</a>";
                     }else{
