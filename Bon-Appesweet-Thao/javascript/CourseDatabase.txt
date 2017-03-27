@@ -1,0 +1,2 @@
+27720;CSCI;1030;01;3.00;Introduction to Computer Science: Game Design;MWF;02:10 pm - 03:10 pm;24;Jason E. Fritts;Professor/Course Link
+20621;CSCI;1060;01;3.00;Introduction to Computer Science: Scientific Programming;MWF;09:00 am - 09:50 am;27;Jacob Sukhodolsky;Professor/Course Link
