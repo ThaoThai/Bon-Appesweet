@@ -750,7 +750,7 @@
         onItemCreate: null,
         onMaxItemsReached: null,
 
-        placeholder: 'Add your ingredients',
+        placeholder: 'Choose option',
         searchPlaceholder: 'Search options',
         noResultsText: 'No results',
         userOptionPrefix: 'Add '
