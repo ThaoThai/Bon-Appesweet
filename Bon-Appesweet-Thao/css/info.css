@@ -1,0 +1,200 @@
+
+table, tr, td{
+    border: 1px solid white;
+}
+html, body{
+    width:100%;
+    margin:0;
+    height: 100%;
+    font-family: Helvetica;
+    background-image:url(http://humanergy.com/wp-content/uploads/2015/04/bread-ingredients-reduced.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#wrapper{
+    width:100%;
+    height: auto;
+    margin-top:12px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    background-size: cover;
+    text-align: center;
+    padding: 20px 20px 20px 20px;
+}
+h1{
+    color: white;
+    font-size: 40px;
+    font-family: Helvetica;
+}
+h3 {
+    color: white;
+    font-size: 15px;
+    text-decoration: underline;
+}
+h2 {
+    color: white;
+    font-size:40px;
+}
+
+h5{
+    font-size: 10px;
+    margin: 0;
+}
+
+h4 {
+    font-size: 14px;
+    color: crimson;
+    display: block;
+    padding-right: 10px;
+    margin: 3px 3px 3px 3px;
+    padding: 0;
+    display: inline-block;
+    width: auto;
+    height: auto;
+}
+
+h6 {
+    font-size: 14px;
+    background-color: crimson;
+    color:white;
+    margin: 3px 3px 3px 3px;
+    border: 2px;
+    width: 20px;
+    display: inline-block;
+    height: 20px;
+}
+
+#title_head {
+    width:100%;
+    height: 50px;
+    position:fixed;
+    line-height: 0px;
+    background-image:url(https://asdb.az.gov/wp-content/uploads/sites/8/2016/03/overlay-pattern-big.png);
+    z-index: 2;
+    text-align: center;
+    background-color: #57A43C;
+    top:0;
+    left:0;  
+}
+
+.navbar {
+    padding-top: 15px;
+}
+.navbar a{
+   font-size:20px;  
+    color: white;
+    padding: 5px 5px 5px 5px;  
+}
+
+.input{
+    text-align: center;
+    padding-top: 90px;
+    margin: auto;
+    color: white;
+}
+
+#search {
+    opacity: 0.6;
+}
+#title_head , .navbar,{
+    display: inline-block;
+}
+
+#recipes{
+    text-align:center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#fridge{
+   width:30px;
+   height:30px;
+   vertical-align: middle;
+}
+
+#find {
+    border: none;
+    width: 50%;
+    height: 40px;
+    background-color: #57A43C;
+    color:white;
+    font-size: 20px;
+    
+}
+
+#find:hover{
+    background-color: darkgreen;
+}
+
+#recipediv{
+    color: black;
+    font-size:15px;
+    padding: 5px 5px 5px 5px;
+    height: 400px;
+    width: 275px;
+    border: 20px;
+    margin: 10px;
+    text-align: center;
+    background-color: ghostwhite;
+    background-image: url(../fridge-02.png);
+    background-size: 90px 90px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    display: inline-block;
+}
+#recipediv:hover{
+/*    background-color:#E5E5E5;*/
+    box-shadow: 4px 4px lightgray;
+    background-image: url(../fridge-01.png);
+}
+
+#recipediv img {
+    align-content: center;
+    margin-left: auto;
+	margin-right: auto;
+	display: block;
+    top: 160px; 
+    padding-top: 40px;
+}
+
+#recipediv h4 {
+    align-content: center;
+    font-size: 15px;
+    font-style: italic;
+}
+
+
+.fstElement { 
+    font-size: 11px; }
+
+.fstMultipleMode .fstControls { 
+    width: 1000px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;}
+
+#number {
+    width: 50px;
+    height: 42px;
+    border: none;
+}
+
+#select-value{
+    display: inline-flex;
+}
+
+select {
+    font-size: 15px;
+    font-style: italic;
+    margin: 10px;
+}
+
+select#fixed {
+    -webkit-appearance: none;
+}

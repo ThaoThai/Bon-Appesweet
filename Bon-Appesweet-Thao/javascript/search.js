@@ -49,7 +49,7 @@ function moreinfo() {
 
 
 function complexSearch(){
-    var addRecipeInformation, cuisine, excludeIngredients, fillIngredients, includeIngredients,instructionRequired,intolerances,limitLicense,number,offset,query,ranking,type,readyInMinutes,timeCook;
+    var addRecipeInformation, cuisine, excludeIngredients, fillIngredients, includeIngredients,instructionRequired,intolerances,limitLicense,number,offset,query,ranking,type,readyInMinutes,timeCook, mealtype, minMinutes;
     addRecipeInformation = true;
     readyInMinutes = 1;
     cuisine = document.getElementById('cuisine').value;
@@ -66,41 +66,49 @@ function complexSearch(){
     //intolerances = document.getElementById('intolerance').value;
     limitLicense =false;
     timeCook = document.getElementById('time').value;
-    if (timeCook  == "slow") {
+    if (timeCook  == "Fast") {
+        minMinutes = 0;
         readyInMinutes = 30;
     }
-    else if (timeCook  == "medium") {
+    else if (timeCook  == "Medium") {
+        minMinutes = 0;
         readyInMinutes = 60;
     }
-    else if (timeCook  == "slow") {
-        readyInMinutes = 90;
+    else if (timeCook  == "Slow") {
+        minMinutes = 90;
+        readyInMinutes=300;
+    }
+    else {
+        minMinutes =0;
+        readyInMinutes=400;
     }
     
     offset=0;
     //query=document.getElementById('query').value;
     ranking=1;
-    //type=document.getElementById('type').value;
+    mealtype=document.getElementById('meal').value;
     //readyInMinutes=document.getElementById('readyInMinutes').value;
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
         if(request.readyState === XMLHttpRequest.DONE && request.status === 200){
             var data = JSON.parse(request.responseText);
             console.log(data);
+            console.log(minMinutes);
+            console.log(readyInMinutes);
             var wrapper = document.getElementById('recipes');
             wrapper.innerHTML="";
             if(data.totalResults > 0) {
                 data.results.forEach(function (recipes) {
-                    if (recipes.usedIngredients.length <= IngredientCount && recipes.missedIngredientCount <= 10 && recipes.readyInMinutes >= readyInMinutes){
+                    if (recipes.usedIngredientCount <= IngredientCount && recipes.usedIngredientCount > 0 && recipes.missedIngredientCount <= 2 && recipes.readyInMinutes > minMinutes && recipes.readyInMinutes <= readyInMinutes ){
                         var recipediv = document.createElement('div');
                         console.log(recipes.title);
                         console.log(recipes.missedIngredientCount);
-
                         recipediv.setAttribute("id","recipediv");
                         recipediv.innerHTML = (
                             "<h4>" + recipes.title + "</h4>" +
                             "<a href='recipeinfo.html?" + recipes.id + "' target='_blank'>" +
                             "<img src="+ "'" + recipes.image + "'"+ "width='50%' height='50%'>" +"</a>");
-                    }else{
+                    } else{
                         return;
                     }
                     wrapper.append(recipediv);
@@ -125,9 +133,8 @@ function complexSearch(){
         "readyInMinutes="+readyInMinutes+"&"+
         "offset="+ offset+"&" +
         //"query="+ replace(query)+"&" +
-        "ranking=1"
-        //"type="+ type)
-                 );
+        "ranking=1" + "&"+
+        "type="+ mealtype);
     request.setRequestHeader('X-Mashape-Key', 'bO9COj191VmshVzI4cNTPoxIxXoMp1ZfMQtjsnsM1bEzjBrumx');
     request.setRequestHeader('Accept', 'application/json');
     request.send();
