@@ -6,6 +6,7 @@ html, body{
     width:100%;
     margin:0;
     height: 100%;
+    text-align: center;
     font-family: Helvetica;
     background-image:url(http://humanergy.com/wp-content/uploads/2015/04/bread-ingredients-reduced.jpg);
     background-attachment: fixed;
@@ -43,12 +44,26 @@ h5{
     margin: 0;
 }
 
+#stars > span {
+    display:inline-block;
+    font-size: 30px;
+    color:gold;
+}
+
+#stars:hover > span:before {
+    content: '\2605';
+    position: absolute;
+}
+
+#stars > span:hover ~ span:before {
+    content:'';
+}
 h4 {
-    font-size: 14px;
+    font-size: 16px;
     color: crimson;
     display: block;
     padding-right: 10px;
-    margin: 3px 3px 3px 3px;
+    margin: 5px 5px 5px 5px;
     padding: 0;
     display: inline-block;
     width: auto;
@@ -198,3 +213,43 @@ select {
 select#fixed {
     -webkit-appearance: none;
 }
+/**************STYLE STAR RATING*****************************/
+
+
+
+fieldset, label { margin: 0; padding: 0; align-self: center; }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+    text-align: center;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 3px;
+  font-size: 30px;
+  font-family: FontAwesome;
+align-self: center;
+  display: inline-block;
+  content: "\2605";
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { 
+    color: #FFD700; } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
