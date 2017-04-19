@@ -29,14 +29,17 @@ function moreinfo() {
                     "<h6>" + String(k) + "</h6>" +
                     instruction[j] + "<br>";
             }
-            description.innerHTML=(
+            getAverageRating(id[1],function(err,rating){
+                description.innerHTML=("<p>RATING ="+rating+"</p>"+
                 "<h2> " + recipeinfo.title + "</h2><br>" +
                 "<img src="+ "'" + recipeinfo.image + "'" + "width='40%' height='40%'> <br> " +
                 "<h5> ..................................................................... </h5><br>" + "<h4> TOTAL TIME: </h4>" +
                 recipeinfo.readyInMinutes + " minutes" + "\t" + " <h4> YIELD: </h4>" + recipeinfo.servings + " servings <br>"+
                 "<h5>..................................................................... </h5><br>" +
-                
-             "<h4> INGREDIENTS: </h4><br>" + ingredients + "<br>" + "<h4>INTRUCTIONS:  </h4><br>" + split_instruction);
+
+                "<h4> INGREDIENTS: </h4><br>" + ingredients + "<br>" + "<h4>INTRUCTIONS:  </h4><br>" + split_instruction);
+            });
+
             document.head.appendChild(title);
             body.append(description);
         }
@@ -104,15 +107,23 @@ function complexSearch(){
                         console.log(recipes.title);
                         console.log(recipes.missedIngredientCount);
                         recipediv.setAttribute("id","recipediv");
-                        recipediv.innerHTML = (
+                        getAverageRating(recipes.id,function(err,rating){
+                            recipediv.innerHTML = (
                             "<h4>" + recipes.title + "</h4>" +
-                            "<a href='recipeinfo.html?" + recipes.id + "' target='_blank'>" +
-                            "<img src="+ "'" + recipes.image + "'"+ "width='50%' height='50%'>" +"</a>");
-                    } else{
-                        return;
-                    }
-                    wrapper.append(recipediv);
-                });
+                            "<a href='recipeinfo.php?" + recipes.id + "' target='_blank'>" +
+                            "<img src="+ "'" + recipes.image + "'"+ "width='50%' height='50%'>" +"</a>" + "rating= "+rating[0]+"<br>"+
+                            "<button onclick='getRating("+recipes.id+","+1+");alert(\"Thanks for rating!\")'>1</button>"+
+                            "<button onclick='getRating("+recipes.id+","+2+");alert(\"Thanks for rating!\")'>2</button>"+
+                            "<button onclick='getRating("+recipes.id+","+3+");alert(\"Thanks for rating!\")'>3</button>"+
+                            "<button onclick='getRating("+recipes.id+","+4+");alert(\"Thanks for rating!\")'>4</button>"+
+                            "<button onclick='getRating("+recipes.id+","+5+");alert(\"Thanks for rating!\")'>5</button>");
+                        });
+
+            } else{
+                return;
+            }
+            wrapper.append(recipediv);
+        });
             }else if(data.totalResults ===0){
                 var p = document.createElement('p');
                 p.innerHTML = "NO RECIPE FOUND";
@@ -147,6 +158,29 @@ function replace(ingredient){
     return result;
 }
 
+function getAverageRating(id,callback) {
+        var request = new XMLHttpRequest();
+
+        request.onreadystatechange = function() {
+            var data =[];
+            if (this.readyState == 4 && this.status == 200) {
+                data.push(this.responseText);
+
+            }
+            callback(null,data);
+        };
+        request.open("GET", "../javascript/rating.php?function=getAverageRating"+"&id="+id, true);
+        request.send();
+}
+function getRating(id,rating){
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+        }
+    };
+    request.open("GET", "../javascript/rating.php?function=Rating"+"&id="+id+"&rating="+rating, true);
+    request.send();
+}
 
 
 
