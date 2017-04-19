@@ -115,13 +115,13 @@ function complexSearch(){
                         recipediv.setAttribute("id","recipediv");
                         recipediv.innerHTML = (
                             "<h4>" + recipes.title + "</h4>" +
-                            "<a href='recipeinfo.html?" + recipes.id + "' target='_blank'>" +
+                            "<a href='recipeinfo.php?" + recipes.id + "' target='_blank'>" +
                             "<img src="+ "'" + recipes.image + "'"+ "width='50%' height='50%'>" +"</a>" +
                                 "<h6> Missed ingredients: " + missed_ingredients +"</h6>");
                         getAverageRating(recipes.id,function(err,rating){
                             recipediv.innerHTML = (
                             "<h4>" + recipes.title + "</h4>" +
-                            "<a href='recipeinfo.html?" + recipes.id + "' target='_blank'>" +
+                            "<a href='recipeinfo.php?" + recipes.id + "' target='_blank'>" +
                             "<img src="+ "'" + recipes.image + "'"+ "width='50%' height='50%'>" +"</a>" +
                                 "<h6> Missed ingredients: " + missed_ingredients +"</h6>" + "<br>" + "rating= "+rating[0]+"<br>"+
                             "<button onclick='getRating("+recipes.id+","+1+");alert(\"Thanks for rating!\")'>1</button>"+
