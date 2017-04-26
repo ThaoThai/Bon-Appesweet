@@ -34,7 +34,6 @@ function postSavings($id, $personid, $recipeimage){
         }
     }
 }
-postSavings(123133,12,"http://image");
 
 function getSavings($personid){
     $conn = mysqli_connect('localhost', 'root', '', 'ratingtable');
@@ -54,15 +53,15 @@ function getSavings($personid){
     }
 }
 
-/*$function = $_REQUEST['function'];
+$function = $_REQUEST['function'];
 
 if($function == "postSavings") {
     $x = $_REQUEST['id'];
     $y = $_REQUEST['recipeid'];
     $z = $_REQUEST['recipeimage'];
-    postSavings($x,$y, $z);
+    postSavings($y,$x,$z);
 }else if($function == "getSavings"){
     $x = $_REQUEST['id'];
     getSavings($x);
-}*/
+}
 ?>
