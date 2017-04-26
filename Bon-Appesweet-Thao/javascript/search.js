@@ -23,11 +23,12 @@ function moreinfo() {
             
             var instruction = recipeinfo.instructions.replace("min.", "minutes");
             getAverageRating(id[1],function(err,rating){
-            
-                description.innerHTML=(
-                    "<h2> " + recipeinfo.title + "</h2><br>" +
+                var image = recipeinfo.image.replace(" ",'');
+                var image2 = "\"" + image +"\""
+                description.innerHTML=
+                    "<h2>" + recipeinfo.title + "</h2><br>" +
                     "<img src="+ "'" + recipeinfo.image + "'" + "width='40%' height='40%'><br>" +
-                    "<button id=\"save\" onclick='postSavings("+recipeinfo.id+","+10+"," + recipeinfo.image +");alert(\"Thanks FOR SAVING\")'>Save</button>"+
+                    "<button id=\"Save\" onclick='postSavings("+recipeinfo.id+","+4+","+image2+");alert(\"Thanks for rating!\")'>Save</button>"+
                     "<br><br>" + "<h4>RATING: "+rating+"</h4><br><br>" + 
                             "<button id=\"ratebtn\" onclick='getRating("+recipeinfo.id+","+1+");alert(\"Thanks for rating!\")'>1</button>"+
                             "<button id=\"ratebtn\" onclick='getRating("+recipeinfo.id+","+2+");alert(\"Thanks for rating!\")'>2</button>"+
@@ -37,11 +38,10 @@ function moreinfo() {
                     "<h5> ............................................................. </h5><br>" + "<h4> | TOTAL TIME | </h4>" +
                     translateHour(recipeinfo.readyInMinutes) + " minutes" + "\t" + " <h4> | YIELD | </h4>" + recipeinfo.servings + " servings <br>"+
                     "<h5>............................................................</h5><br>" +
-
-                 "<h4> | INGREDIENTS | </h4><br>" + ingredients + "<br>" + "<h4>| INTRUCTIONS |  </h4><br><p>" + instruction + "</p><br><br><br>")
+                 "<h4> | INGREDIENTS | </h4><br>" + ingredients + "<br>" + "<h4>| INTRUCTIONS |  </h4><br><p>" + instruction + "</p><br><br><br>"
             });
             document.head.appendChild(title);
-            body.append(description);
+            body.appendChild(description);
         }
     };
         request.open("GET", "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/" + id[1] + "/information");
@@ -268,7 +268,7 @@ function replace(ingredient){
 //    request.send();
 //}
 
-function postSavings(id,recipeid,recipeimage){
+function postSavings(recipeid,id,recipeimage){
     console.log("RUNNING");
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
@@ -276,9 +276,10 @@ function postSavings(id,recipeid,recipeimage){
             console.log("SUCCESS");
         }
     };
-    request.open("GET","favorites.php?function=postSavings"+"&id="+id+"&recipeid="+recipeid+"&recipeimage="+recipeimage,true);
+    request.open("GET","favorites.php?function=postSavings&id="+id+"&recipeid="+recipeid+"&recipeimage="+recipeimage,true);
     request.send();
 }
+
 
 function getSavings(id){
     var request = new XMLHttpRequest();
@@ -289,7 +290,7 @@ function getSavings(id){
             console.log("SUCCESS");
         }
     };
-    request.open("GET","favorites.php?function=getSavings"+"&id="+id,true);
+    request.open("GET","favorites.php?function=getSavings&id="+id,true);
     request.send();
 }
 

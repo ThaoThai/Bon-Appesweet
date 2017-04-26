@@ -12,10 +12,12 @@
        <h1> Bon Appèsweet </h1> 
 </div><br><br>
 <div id ="wrapper"> 
-<script>moreinfo()</script>
+<script>
+    moreinfo()
+</script>
 
  </div>
 
-    </body>
+</body>
 </html>
     
