@@ -24,9 +24,12 @@
  <div id= "wrapper">
     <div class="title">
        <h1> Bon Appèsweet </h1> 
-    </div><br><br>
+        <a href="registration.php" id="rLink" > SIGN UP</a>
+        <a href="registration.php" id="rLink"> SIGN IN</a>
+    </div>
     <div class="input">
-        <h2> What's in your fridge?</h2><br>
+        <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/omlet-egg-frying-pan-breakfast-food-emoj-symbol-3fd7d855fafae2a4-512x512.png" width="200px" height="200px"> 
+        <h2> WHAT'S IN YOUR FRIDGE?</h2><br>
         <div id ="select-value"> 
             <div id="cuisin-select"> 
                 <h3> Cuisine</h3>
@@ -74,11 +77,13 @@
         <br><br>
         
 <!--        <input type="text" multiple class="demo" data-url="data.json" name="language">-->
-        <input type="text" id="search" multiple class="selectIngd" data-url="../data.json" data-load-once="true" name="ingredients" placeholder="Add Your Ingredients"/>
+        <input type="text" id="search" multiple class="selectIngd" data-url="../data.json" data-load-once="true" name="ingredients" placeholder="Add Your Ingredients"/><br><br>
+<!--
         <script>
                 $('.multipleInputDynamicWithInitialValue').fastselect();
         </script>
         <script> $('.selectIngd').fastselect()</script><br><br>
+-->
         <button id ="find" onclick="complexSearch()"><img id="fridge" src="https://s3.amazonaws.com/swings/icons/icon_fridge.png"> FIND MY RECIPES</button>
     </div><br>
      <div id="recipes" >

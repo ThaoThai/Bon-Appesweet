@@ -51,7 +51,10 @@ function getAverageRating($id){
         if(!$row){
             return (int)0;
         }else{
-            return (int)$row['average'];
+            $total = $row['total'];
+            $count = $row['count'];
+            $average = $total/$count;
+            return round($average,1);
         }
     }
 }
