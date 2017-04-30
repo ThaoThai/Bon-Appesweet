@@ -40,16 +40,19 @@ function getSavings($personid){
     if(!$conn){
         die("ERROR CONNECTING" . mysqli_error());
     }else{
-        $posting =  mysqli_query($conn, "SELECT  `recipeid` FROM `favorites` where `personid` = $personid");
+        $posting =  mysqli_query($conn, "SELECT  `recipeid`, `image` FROM `favorites` where `personid` = $personid");
         $solutions = array();
 
         while($row = mysqli_fetch_array($posting)) {
             $solutions[] = $row['recipeid'];
+            $solutions[] = $row['image'];
         }
-        foreach($solutions as $sol){
-            echo $sol;
-            echo "<br>";
+        for($i = 0; $i < count($solutions)-1;$i++){
+            $id = $solutions[$i];
+            $image = $solutions[$i+1];
+            echo "<a href='recipeinfo.php?$id' target='_blank'><img src='$image'></a>";
         }
+
     }
 }
 

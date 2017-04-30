@@ -285,8 +285,9 @@ function getSavings(id){
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
         if(this.readyState == 4 && this.status == 200){
-            var show = document.getElementById('displayShow');
+            var show = document.getElementById('show');
             show.innerHTML = this.responseText;
+            console.log(this.responseText);
             console.log("SUCCESS");
         }
     };
