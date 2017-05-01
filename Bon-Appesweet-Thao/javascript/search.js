@@ -27,10 +27,10 @@ function moreinfo() {
                 var user_id =localStorage.getItem("user_id");
                 var image = recipeinfo.image.replace(" ",'');
                 var image2 = "\"" + image +"\"";
-                description.innerHTML=
+                var title = "\"" + recipeinfo.title + "\"";
+                var button = "<button id=\"save\" onclick='postSavings("+recipeinfo.id+","+user_id+","+image2+","+title+");alert(\"Saved!\")'>Save</button>";                description.innerHTML=
                     "<h2>" + recipeinfo.title + "</h2><br>" +
-                    "<img src="+ "'" + recipeinfo.image + "'" + "width='40%' height='40%'><br>" +
-                    "<button id=\"Save\" onclick='postSavings("+recipeinfo.id+","+user_id+","+image2+");alert(\"Saved!\")'>Save</button>"+
+                    "<img src="+ "'" + recipeinfo.image + "'" + "width='40%' height='40%'><br>" + button +
                     "<br><br>" + "<h4>RATING: "+rating+"</h4><br><br>" + 
                             "<button id=\"ratebtn\" onclick='getRating("+recipeinfo.id+","+1+");alert(\"Thanks for rating!\")'>1</button>"+
                             "<button id=\"ratebtn\" onclick='getRating("+recipeinfo.id+","+2+");alert(\"Thanks for rating!\")'>2</button>"+
@@ -270,7 +270,7 @@ function replace(ingredient){
 //    request.send();
 //}
 
-function postSavings(recipeid,id,recipeimage){
+function postSavings(recipeid,id,recipeimage,recipetitle){
     console.log("RUNNING");
     var request = new XMLHttpRequest();
     request.onreadystatechange = function(){
@@ -278,7 +278,7 @@ function postSavings(recipeid,id,recipeimage){
             console.log("SUCCESS");
         }
     };
-    request.open("GET","favorites.php?function=postSavings&id="+id+"&recipeid="+recipeid+"&recipeimage="+recipeimage,true);
+    request.open("GET","favorites.php?function=postSavings&id="+id+"&recipeid="+recipeid+"&recipeimage="+recipeimage+"&recipetitle="+recipetitle,true);
     request.send();
 }
 

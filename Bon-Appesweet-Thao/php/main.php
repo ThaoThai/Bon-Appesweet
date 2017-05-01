@@ -1,7 +1,5 @@
 
-<?php
-include('session.php');
-?>
+
 
 <!DOCTYPE html>
 <meta http-equiv="Cache-control" content="no-cache">
@@ -28,14 +26,23 @@ include('session.php');
  <div id= "wrapper">
     <div class="title">
        <h1> Bon Appèsweet </h1> 
-        <a href="registration.php" id="rLink" > SIGN UP</a>
-        <a href="login.php" id="rLink"> SIGN IN</a>
-        <a href="logout.php" onclick="hideDiv()"> LOG OUT</a>
+        <?php
+            require_once('session.php');
+            if(($_SESSION['username'])=="")
+            {
+                echo '<a href="login.php" id="rLink"> SIGN IN</a>';
+                echo '<a href="registration.php" id="rLink" > SIGN UP</a>';
+            }
+            else
+            {
+                echo '<a href="logout.php" id="rLink"> LOG OUT</a>';
+            }
+        ?>
     </div>
     <div class="input">
         <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/omlet-egg-frying-pan-breakfast-food-emoj-symbol-3fd7d855fafae2a4-512x512.png" width="200px" height="200px"> 
-        <h2> <a href="favoritespage.php" ><i><?php 
-            echo strtoupper($login_session); ?></i></a> WHAT'S IN YOUR FRIDGE?</h2><br>
+        <h2> <a href="favoritespage.php" style="font-size:40px; color:#57A43C;"><i><?php 
+            echo strtoupper($_SESSION['username']); ?></i></a> WHAT'S IN YOUR FRIDGE?</h2><br>
         <div id ="select-value"> 
             <div id="cuisin-select"> 
                 <h3> Cuisine</h3>

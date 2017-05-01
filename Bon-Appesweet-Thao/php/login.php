@@ -26,7 +26,6 @@
     <h1>Bon Appèsweet </h1>
     <a href="main.php" id="rLink"> HOME</a>
     <a href="registration.php" id="rLink"> SIGN UP</a>
-    <a href="logout.php" id="signout" onclick="hideDiv()"> LOG OUT</a>
 
 </div> 
     

@@ -1,5 +1,15 @@
 <?php
-include('session.php');
+require_once('session.php');
+if (($_SESSION['user_id'])===null) {
+    
+}
+else {
+    echo "<script>";
+    echo "var user_id = <?php echo'".$_SESSION['user_id'].";?>'";   
+    echo "localStorage.setItem("user_id",user_id);";
+    echo "</script>";
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -17,13 +27,10 @@ include('session.php');
 </div><br><br>
 <div id ="wrapper"> 
 <script>
-    var user_id = <?php echo $_SESSION['user_id']; ?>;    
-    localStorage.setItem("user_id",user_id);
     moreinfo();
 </script>
 
  </div>
 
 </body>
-</html>
-    
+</html> 

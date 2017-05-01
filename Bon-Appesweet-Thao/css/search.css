@@ -13,7 +13,7 @@ html, body{
 }
 #wrapper{
     width:100%;
-    height: autol
+    height: auto;
     margin-left:auto;
     background: rgba(0, 0, 0, 0.3);
     margin-right:auto;
@@ -214,6 +214,7 @@ table {
 #rLink {
     background-color:  orange;
     padding: 5px 10px 5px 10px;
+    margin-right: 10px;
     color: white;
 }
 #rLink:hover {
