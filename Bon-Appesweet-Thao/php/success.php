@@ -28,13 +28,12 @@
 <body id="body">
     <div class="title">
        <h1> Bon Appèsweet </h1> 
-        <a href="main.php" id="rLink" > GO BACK HOME</a>
      </div>
 
 <div class="input-register">
     <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/omlet-egg-frying-pan-breakfast-food-emoj-symbol-3fd7d855fafae2a4-512x512.png" width="200px" height="200px"> 
     <h2 style= "text-align: center; font-family:helvetica; color:white">WELCOME, <?php echo $_SESSION[ 'username' ]; ?>!</h2><br>
-    <a href="login.php" style= "text-align: center; font-family:helvetica; color:white; font-size:30px; color:orange;" > SIGN IN</a>
+    <a href="main.php" style= "text-align: center; font-family:helvetica; color:white; font-size:30px; color:orange;" > GO BACK HOME</a>
      </div>
 </body>    
 </html>

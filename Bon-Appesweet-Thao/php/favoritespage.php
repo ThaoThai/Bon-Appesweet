@@ -1,6 +1,6 @@
 
 <?php
-require_once('session.php');
+include('session.php');
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +29,7 @@ require_once('session.php');
     <div class="title">
        <h1> Bon Appèsweet </h1> 
         <a href="main.php" id="rLink" > HOME</a>
-        <a href="logout.php" onclick="hideDiv()"> LOG OUT</a>
+        <a href="logout.php" id="rLink"> LOG OUT</a>
     </div>
     <div class="input">
         <h2> <a href="favoritespage.php" style="font-size:40px; color:#57A43C;"><i><?php 

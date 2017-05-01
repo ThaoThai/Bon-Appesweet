@@ -28,7 +28,13 @@ function moreinfo() {
                 var image = recipeinfo.image.replace(" ",'');
                 var image2 = "\"" + image +"\"";
                 var title = "\"" + recipeinfo.title + "\"";
-                var button = "<button id=\"save\" onclick='postSavings("+recipeinfo.id+","+user_id+","+image2+","+title+");alert(\"Saved!\")'>Save</button>";                description.innerHTML=
+                var button="";
+                if (user_id.length > 0) {
+                    button = "<button id=\"save\" onclick='postSavings("+recipeinfo.id+","+user_id+","+image2+","+title+");alert(\"Saved!\")'>Save</button>";    
+                    
+                }
+                else { button = ""};
+                description.innerHTML=
                     "<h2>" + recipeinfo.title + "</h2><br>" +
                     "<img src="+ "'" + recipeinfo.image + "'" + "width='40%' height='40%'><br>" + button +
                     "<br><br>" + "<h4>RATING: "+rating+"</h4><br><br>" + 

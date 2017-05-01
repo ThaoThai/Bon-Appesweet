@@ -1,12 +1,14 @@
 <?php
-require_once('session.php');
-if (($_SESSION['user_id'])===null) {
-    
+include('session.php');
+if (($_SESSION['user_id'])===null) { 
+    echo "<script>";
+    echo "localStorage.setItem(\"user_id\",\"\");";
+    echo "</script>";
 }
 else {
     echo "<script>";
-    echo "var user_id = <?php echo'".$_SESSION['user_id'].";?>'";   
-    echo "localStorage.setItem("user_id",user_id);";
+    echo "var user_id = ". $_SESSION['user_id'].";";   
+    echo "localStorage.setItem(\"user_id\",user_id);";
     echo "</script>";
 }
 

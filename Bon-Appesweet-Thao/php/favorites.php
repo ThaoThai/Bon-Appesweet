@@ -53,12 +53,12 @@ function getSavings($personid){
             $solutions[] = $row['image'];
             $solutions[] = $row['title'];
         }
-        for($i = 0; $i < count($solutions)-2;$i++){
+        for($i = 0; $i < count($solutions)-2;$i+=3){
             $id = $solutions[$i];
             $image = $solutions[$i+1];
             $title = $solutions[$i+2];
             echo "
-            <a href='recipeinfo.php?$id' target='_blank'><p style='color:white;font-size:20px'>$title</p><img src='$image' width='200px' height='200px' style='margin:10px;'></a>
+            <a href='recipeinfo.php?$id' target='_blank'><div id=\"favorites\"><p style='color:black;font-size:20px'>$title</p><img src='$image' width='200px' height='200px' style='margin:10px;'></div></a>
             ";
         }
 

@@ -1,4 +1,6 @@
-
+<?php
+include('session.php');
+?>
 
 
 <!DOCTYPE html>
@@ -27,7 +29,6 @@
     <div class="title">
        <h1> Bon Appèsweet </h1> 
         <?php
-            require_once('session.php');
             if(($_SESSION['username'])=="")
             {
                 echo '<a href="login.php" id="rLink"> SIGN IN</a>';

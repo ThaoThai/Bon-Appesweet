@@ -83,6 +83,8 @@
     <a href="login.php" id="rLink"> SIGN IN</a>
 </div>
 <div class="input-register">
+        <div style="height:20%;"></div>
+
             <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/omlet-egg-frying-pan-breakfast-food-emoj-symbol-3fd7d855fafae2a4-512x512.png" width="200px" height="200px"> 
         <h2> CREATE YOUR ACCOUNT</h2><br>
 <form method="post" action="registration.php">

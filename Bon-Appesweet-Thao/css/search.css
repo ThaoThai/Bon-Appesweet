@@ -76,13 +76,11 @@ h2 {
 
 .input-register{
     text-align: center;
-    height: 82.5%;
+    height: 100%;
     width: 100%;
-    padding-top: 80px;
     margin: auto;
     color: white;
     background-color: rgba(0, 0, 0, 0.5);
-    padding-top: 10%;
 }
 
 #search {
@@ -260,4 +258,22 @@ button {
     color: white;
     border: 0;
     padding: 6px;
+}
+
+#favorites {
+    color: black;
+    font-size:15px;
+    padding: 5px 5px 5px 5px;
+    height: 275px;
+    width: 300px;
+    border: 30px;
+    margin: 10px;
+    text-align: center;
+    background-color: rgba(225, 225, 225, .95);
+/*    background-image: url(../img/fridge-02.png);*/
+    background-size: 90px 90px;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    display: inline-block;
 }
