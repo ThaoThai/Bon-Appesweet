@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    $db = mysqli_connect("localhost", "root", "", "authentication");
+    $db = mysqli_connect("localhost", "root", "", "ratingtable");
     if (mysqli_connect_errno()) {
         printf("Connect failed: %s\n", mysqli_connect_error());
         exit();
@@ -21,9 +21,12 @@
         
         if($password == $password2){
             //create user
-            $password = md5($password); //hash password before storing
+            
+//            $password = md5($password); //hash password before storing
+//            $password=password_hash($password, PASSWORD_BCRYPT,array('cost'=>12));
+            
             //$sql = "INSERT INTO `users`(`username`, `email`, `password`) VALUES($username, $email, $password)";
-            $result = mysqli_query($db, "INSERT INTO `users`(`username`, `email`, `password`) VALUES(\"$username\", \"$email\", \"$password\")");
+            $result = mysqli_query($db, "INSERT INTO `users`(`email`, `username`,`password`) VALUES(\"$email\", \"$username\", \"$password\")");
             
             if($result == 1){
                 $_SESSION['message'] = "You are now logged in";
@@ -77,7 +80,7 @@
 <div class="title">
     <h1>Bon Appèsweet </h1>
     <a href="main.php" id="rLink"> HOME</a>
-    <a href="main.php" id="rLink"> SIGN IN</a>
+    <a href="login.php" id="rLink"> SIGN IN</a>
 </div>
 <div class="input-register">
             <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/omlet-egg-frying-pan-breakfast-food-emoj-symbol-3fd7d855fafae2a4-512x512.png" width="200px" height="200px"> 
@@ -102,7 +105,7 @@
         </tr>        
         <tr>
             <td></td>
-            <td><button class="registertbn" name="register_btn" value="REGISTER"> REGISTER</button></td>
+            <td><button class="registertbn" name="register_btn" value="REGISTER" style= "padding:6px;"> REGISTER</button></td>
         </tr>
     </table>
 </form>  

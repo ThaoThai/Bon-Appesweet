@@ -1,3 +1,7 @@
+<?php
+include('session.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +17,9 @@
 </div><br><br>
 <div id ="wrapper"> 
 <script>
-    moreinfo()
+    var user_id = <?php echo $_SESSION['user_id']; ?>;    
+    localStorage.setItem("user_id",user_id);
+    moreinfo();
 </script>
 
  </div>

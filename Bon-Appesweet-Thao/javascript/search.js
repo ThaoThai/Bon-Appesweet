@@ -2,6 +2,7 @@
  * http://usejsdoc.org/
  */
 
+    
 function moreinfo() {
     console.log(document.URL);
     var body = document.getElementById('wrapper');
@@ -23,12 +24,13 @@ function moreinfo() {
             
             var instruction = recipeinfo.instructions.replace("min.", "minutes");
             getAverageRating(id[1],function(err,rating){
+                var user_id =localStorage.getItem("user_id");
                 var image = recipeinfo.image.replace(" ",'');
-                var image2 = "\"" + image +"\""
+                var image2 = "\"" + image +"\"";
                 description.innerHTML=
                     "<h2>" + recipeinfo.title + "</h2><br>" +
                     "<img src="+ "'" + recipeinfo.image + "'" + "width='40%' height='40%'><br>" +
-                    "<button id=\"Save\" onclick='postSavings("+recipeinfo.id+","+4+","+image2+");alert(\"Thanks for rating!\")'>Save</button>"+
+                    "<button id=\"Save\" onclick='postSavings("+recipeinfo.id+","+user_id+","+image2+");alert(\"Saved!\")'>Save</button>"+
                     "<br><br>" + "<h4>RATING: "+rating+"</h4><br><br>" + 
                             "<button id=\"ratebtn\" onclick='getRating("+recipeinfo.id+","+1+");alert(\"Thanks for rating!\")'>1</button>"+
                             "<button id=\"ratebtn\" onclick='getRating("+recipeinfo.id+","+2+");alert(\"Thanks for rating!\")'>2</button>"+
@@ -331,5 +333,7 @@ function getRating(id,rating){
     request.send();
 }
 
-
+function hideDiv() {
+   document.getElementById('signout').style.display="none";
+}
 

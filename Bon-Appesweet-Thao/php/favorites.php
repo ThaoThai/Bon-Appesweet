@@ -1,3 +1,8 @@
+
+<?php
+include('session.php');
+?>
+
 <?php
 /**
  * Created by PhpStorm.

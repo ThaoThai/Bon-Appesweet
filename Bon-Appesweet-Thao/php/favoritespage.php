@@ -1,3 +1,8 @@
+
+<?php
+include('session.php');
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,7 +12,7 @@
 <div id="header" style="width: 100%;height: 40%; display: flex">
     <div id="container" style=" width 80%;margin:auto auto;">
         <div id="username" style="margin: 0 auto;">
-            <p style="font-size:50px;">Username</p>
+            <p style="font-size:50px;"><?php echo strtoupper($_SESSION['username']); ?></p>
         </div>
     </div>
 </div>
@@ -15,7 +20,8 @@
     <div id="bodycontainer">
         <div id="show">
             <script>
-                getSavings(4);
+                var user_id = "<?php echo $_SESSION['user_id']; ?>";
+                getSavings(user_id);
             </script>
         </div>
     </div>
